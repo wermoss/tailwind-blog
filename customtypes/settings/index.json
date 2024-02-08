@@ -6,6 +6,16 @@
   "status": true,
   "json": {
     "Main": {
+      "logo": {
+        "type": "Image",
+        "config": {
+          "label": "Logo",
+          "constraint": {
+            "width": 150
+          },
+          "thumbnails": []
+        }
+      },
       "site_title": {
         "type": "Text",
         "config": {
@@ -26,30 +36,6 @@
           "label": "OG Image",
           "constraint": {},
           "thumbnails": []
-        }
-      },
-      "navigation": {
-        "type": "Group",
-        "config": {
-          "label": "Navigation",
-          "repeat": true,
-          "fields": {
-            "link": {
-              "type": "Link",
-              "config": {
-                "label": "Link",
-                "placeholder": "",
-                "select": null
-              }
-            },
-            "label": {
-              "type": "Text",
-              "config": {
-                "label": "Label",
-                "placeholder": ""
-              }
-            }
-          }
         }
       }
     }

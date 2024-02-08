@@ -3,23 +3,20 @@ import { components } from '~/slices'
 
 const { locale } = useI18n()
 const prismic = usePrismic()
-const { data: page } = useAsyncData('${locale.value}/index', () =>
-  prismic.client.getByUID('page', 'home', { lang: locale.value })
+const route = useRoute()
+const { data: page } = useAsyncData(`${locale.value}/${route.params.uid}` as string, () =>
+  prismic.client.getByUID('article', route.params.uid as string, { lang: locale.value })
 )
+const settings = useSettings()
 
 watch(() => page.value?.alternate_languages, () => {
   useAlternateLanguages().value = page.value?.alternate_languages || []
 }, { immediate: true })
 
-
-useHead({
-  title: prismic.asText(page.value?.data.title)
-})
 </script>
 
 
 <template>
-  <Articles />
   <SliceZone
     wrapper="main"
     :slices="page?.data.slices ?? []"

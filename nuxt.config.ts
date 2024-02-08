@@ -20,7 +20,12 @@ export default defineNuxtConfig({
     }
   },
 
-  modules: ['@nuxtjs/prismic', "@nuxtjs/tailwindcss"],
+  modules: ['@nuxtjs/prismic', "@nuxtjs/tailwindcss", "@nuxtjs/i18n"],
+
+    i18n: {
+    locales: ['en-us', 'pl', 'ru'],
+    defaultLocale: 'en-us'
+  },
 
   prismic: {
     endpoint: 'tailwind-blog',
@@ -37,6 +42,15 @@ export default defineNuxtConfig({
           path: '/',
         },
       ]
+    }
+  },
+
+  tailwindcss: {
+    config: {
+      content: [
+        './app/**/*.{js,ts,vue}',
+        './slices/**/*.{js,ts,vue}'
+      ],
     }
   },
 })
