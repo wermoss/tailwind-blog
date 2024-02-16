@@ -25,6 +25,7 @@
     "concurrently": "^8.2.2",
     "eslint": "^8.52.0",
     "nuxt": "^3.8.0",
+    "nuxt-mongoose": "^1.0.5",
     "prettier": "^3.2.5",
     "prettier-plugin-tailwindcss": "^0.5.11",
     "slice-machine-ui": "^1.23.1"
@@ -32,6 +33,7 @@
   "dependencies": {
     "@sendgrid/mail": "^8.1.0",
     "date-fns": "^3.3.1",
-    "vue-cryptojs": "^2.4.5"
+    "vue-cryptojs": "^2.4.5",
+    "zadarma": "^1.1.2"
   }
 }
