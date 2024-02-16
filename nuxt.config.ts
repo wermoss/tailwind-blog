@@ -4,6 +4,12 @@ import { repositoryName } from './slicemachine.config.json'
 export default defineNuxtConfig({
   devtools: true,
 
+  runtimeConfig: {
+    public: {
+      brevoApiKey: process.env.BREVO_API_KEY
+    }
+  },
+
   app: {
     head: {
       title: 'Prismic + Nuxt Minimal Starter',
@@ -20,12 +26,16 @@ export default defineNuxtConfig({
     }
   },
 
-  modules: ['@nuxtjs/prismic', "@nuxtjs/tailwindcss", "@nuxtjs/i18n"],
+  modules: ['@nuxtjs/prismic', '@nuxtjs/tailwindcss', '@nuxtjs/i18n',],
 
     i18n: {
     locales: ['en-us', 'pl', 'ru'],
     defaultLocale: 'en-us'
   },
+  
+  buildModules: [
+    '@nuxtjs/date-fns'
+  ],
 
   prismic: {
     endpoint: 'tailwind-blog',
@@ -41,6 +51,11 @@ export default defineNuxtConfig({
           uid: 'home',
           path: '/',
         },
+        {
+          type: 'page',
+          uid: 'contact',
+          path: '/',
+        },
       ]
     }
   },
@@ -49,8 +64,21 @@ export default defineNuxtConfig({
     config: {
       content: [
         './app/**/*.{js,ts,vue}',
-        './slices/**/*.{js,ts,vue}'
+        './slices/**/*.{js,ts,vue}',
+        "./components/**/*.{js,vue,ts}",
+        "./layouts/**/*.vue",
+        "./pages/**/*.vue",
+        "./plugins/**/*.{js,ts}",
+        "./app.vue",
+        "./error.vue",
       ],
     }
+  },
+  css: ['~/assets/css/tailwind.css'],
+  postcss: {
+    plugins: {
+      tailwindcss: {},
+      autoprefixer: {},
+    },
   },
 })

@@ -4,7 +4,7 @@ import { components } from '~/slices'
 const { locale } = useI18n()
 const prismic = usePrismic()
 const { data: page } = useAsyncData('${locale.value}/index', () =>
-  prismic.client.getByUID('page', 'home', { lang: locale.value })
+  prismic.client.getByUID('page', 'blog', { lang: locale.value })
 )
 
 watch(() => page.value?.alternate_languages, () => {
@@ -19,7 +19,7 @@ useHead({
 
 
 <template>
-  <LastArticlesHome />
+  <AllArticles />
   <SliceZone
     wrapper="main"
     :slices="page?.data.slices ?? []"

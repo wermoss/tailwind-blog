@@ -17,6 +17,7 @@ watch(() => page.value?.alternate_languages, () => {
 
 
 <template>
+  <LastArticlesBlog />
   <SliceZone
     wrapper="main"
     :slices="page?.data.slices ?? []"
